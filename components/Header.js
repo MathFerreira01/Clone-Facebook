@@ -18,8 +18,13 @@ import {
 import HeaderIcon from "./HeaderIcon";
 
 import Logo from '../assets/Facebook-logo.png'
+import User from '../assets/facebook-user.jpg'
+
+import {signOut, useSession} from 'next-auth/react'
 
 function Header() {
+  const {session} = useSession()
+
   return (
     <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/* Left */}
@@ -54,7 +59,17 @@ function Header() {
       {/* Right */}
       <div className="flex items-center sm:space-x-2 justify-end">
         {/* Profile pic*/}
-        <p className="font-semibold pr-3 whitespace-nowrap">Matheus Ferreira</p>
+        <Image
+        onClick={signOut}
+        className='rounded-full cursor-pointer'
+        src={User}
+        alt="/"
+        width="43"
+        height="43"
+        layout="fixed"
+        />
+
+        <p className="font-semibold pr-3 whitespace-nowrap">Matheus F</p>
         <ViewGridIcon className="icon"/>
         <ChatIcon className="icon"/>
         <BellIcon className="icon"/>
