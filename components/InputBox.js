@@ -25,7 +25,7 @@ function InputBox() {
         message: inputRef.current.value,
         name: "Matheus F",
         email: "matheusf123@gmail.com",
-        image: { User },
+        image: User ,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then((doc) => {
